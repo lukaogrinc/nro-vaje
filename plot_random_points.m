@@ -36,8 +36,6 @@ function plot_random_points()
     % Riši lok krožnice v črni barvi
     plot(x_circle, y_circle, 'k--', 'LineWidth', 2, 'DisplayName', 'Krožnica');
 
-    % Dodaj legendo
-    legend('Location', 'Best');
 
 
     % Prikaži rezultat
