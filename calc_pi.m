@@ -2,8 +2,8 @@ function calc_pi()
     % Število korakov
     koraki = 100;
 
-    % Naključne točke od 10 do 3000
-    stevilo_tock = round(linspace(10, 3000, koraki));
+    % Naraščajoče število naključnih točk
+    stevilo_tock = round(linspace(10, 4000, koraki));
 
     % Predhodno definirana vrednost za π
     prava_vrednost_pi = pi;
@@ -12,12 +12,11 @@ function calc_pi()
     izracunane_vrednosti_pi = zeros(size(stevilo_tock));
     napake = zeros(size(stevilo_tock));
 
-    figure; 
-    
-    % Za plot rezultatov ustvarimo sliko
+    figure; % Ustvarimo novo sliko za risanje rezultatov
 
     for i = 1:length(stevilo_tock)
-        % Kličemo mcc_pi brez vračanja rezultatov
+        % Kličemo mcc_pi za trenutno število točk, kjer
+        % uporabimoprint_results == false, da ne sprinta rezultata
         [krog, kvadrat] = mcc_pi(stevilo_tock(i), false);
 
         % Klic funkcije area_pi za izračun π
@@ -33,11 +32,11 @@ function calc_pi()
     disp(['Povprečna vrednost π: ' num2str(povprecna_vrednost_pi)]);
     disp(['Napaka povprečne vrednosti π: ' num2str(napaka_povprecja)]);
 
-    % Izrišemo teoretično vrednost π
+    % Izrišemo konstantno teoretično vrednost π
     plot(stevilo_tock, prava_vrednost_pi * ones(size(stevilo_tock)), 'b--', 'DisplayName', 'pi');
     hold on;
     
-    % Nariši črto, ki poveže vse točke
+    % Plot the line connecting all the calculated points
     plot(stevilo_tock, izracunane_vrednosti_pi, '-o', 'Color', 'r', 'Marker', 'none', 'DisplayName','Približki števila pi');
 
     xlabel('Število točk');
