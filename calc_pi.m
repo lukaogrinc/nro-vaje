@@ -1,5 +1,5 @@
 function calc_pi()
-    % Število korakov
+    % Število korakovv
     koraki = 100;
 
     % Naraščajoče število naključnih točk
